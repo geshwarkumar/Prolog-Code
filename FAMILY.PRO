@@ -1,0 +1,58 @@
+%FIND RELATION OF FAMILY%
+
+DOMAINS
+	person = symbol
+
+PREDICATES
+	nondeterm male(person)
+	nondeterm female(person)
+	
+	nondeterm parentof(person,person)
+	nondeterm married(person,person)
+	
+	nondeterm fatherof(person,person)
+	nondeterm motherof(person,person)
+	
+	nondeterm sonof(person,person)
+	nondeterm doughterof(person,person)
+	
+	nondeterm brotherof(person,person)
+	nondeterm sisterof(person,person)
+	
+	nondeterm auntof(person,person)
+	nondeterm uncleof(person,person)
+	
+	nondeterm ancestorof(person,person)
+	
+CLAUSES
+	/*male("N.R.Sharma").
+	female("Mrs. N.R.Sharma").*/
+	
+	/*husband("N.R.Sharma","Mrs. N.R.Sharma").
+	wifeof("Mrs. N.R.Sharma","N.R.Sharma").*/
+	
+	male("Ram").
+	male("raj").
+	male("mohan").
+	female("rani").
+	female("marya").
+	
+	/*fatherof("N.R.Sharma","raj").
+	fatherof("N.R.Sharma","mohan").
+	fatherof("N.R.Sharma","rani").
+	fatherof("N.R.Sharma","marya").*/
+	
+	motherof("Mrs. N.R.Sharma","raj").
+	motherof("Mrs. N.R.Sharma","mohan").
+	motherof("Mrs. N.R.Sharma","rani").
+	motherof("Mrs. N.R.Sharma","marya").
+		
+	brotherof("Ram","Mrs. N.R.Sharma").				
+	
+	mamaof(X,Y) :- 	male(X),
+			brotherof(X,_),
+			%female(Y),
+			motherof(_,Y).
+				
+GOAL
+	mamaof(X,Y).

@@ -1,0 +1,11 @@
+/*PROLOG CODE FOR UNION OPERATION
+-GESHWAR KMAR
+-23/02/2017*/
+
+DOMAINS
+	List1 = integer*
+	List2 = integer*
+PREDICATES
+	nondeterm union(List1,List2,List3)
+CLAUSES
+GOAL

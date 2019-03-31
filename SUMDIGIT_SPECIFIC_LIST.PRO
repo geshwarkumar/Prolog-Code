@@ -1,0 +1,11 @@
+domains
+	integerlist = integer*
+predicates
+	nondeterm sumdigit(integerlist,integer,integerlist)
+clauses
+	sumdigit([],_,[]).
+	sumdigit([H|T],Num,[H1|T1]):-
+					sumdigit(T,Num,T1),
+					H1 = Num + H .
+goal
+	sumdigit([1,2,3,4,5],3,Sum).

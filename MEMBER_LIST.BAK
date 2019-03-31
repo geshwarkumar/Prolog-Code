@@ -1,0 +1,11 @@
+domains
+	integerlist = integer*
+predicates
+	
+	nondeterministic member(integer,integerlist)
+clauses
+	member(X,[X|_]).
+	member(X,[_|T]):-
+				member(X,T).
+goal
+	member(4,[1,2,3,4,5]).
